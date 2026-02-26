@@ -1,0 +1,129 @@
+/* Professional Template Styles */
+/* A clean, classic single-column layout with a strong header */
+
+.professional-theme {
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    padding: 40px 50px;
+    box-sizing: border-box;
+}
+
+/* Header */
+.professional-theme .resume-header {
+    border-bottom: 2px solid #2c3e50;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.professional-theme .r-name {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.professional-theme .r-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.professional-theme .r-contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.professional-theme .r-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Body Layout */
+.professional-theme .resume-body {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Sections */
+.professional-theme .r-section-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2c3e50;
+    text-transform: uppercase;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    clear: both;
+}
+
+.professional-theme .r-summary-text {
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Items List (Experience & Education) */
+.professional-theme .r-item {
+    margin-bottom: 15px;
+}
+
+.professional-theme .r-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 5px;
+}
+
+.professional-theme .r-item-title {
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: #222;
+}
+
+.professional-theme .r-item-subtitle {
+    font-style: italic;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.professional-theme .r-item-date {
+    font-size: 0.9rem;
+    color: #777;
+    font-weight: 500;
+}
+
+.professional-theme .r-item-desc {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #444;
+}
+
+.professional-theme .r-item-desc ul {
+    padding-left: 20px;
+    margin-top: 5px;
+}
+
+/* Skills */
+.professional-theme .r-skills-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0;
+}
+
+.professional-theme .r-skills-list li {
+    background-color: #f0f4f8;
+    color: #2c3e50;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
