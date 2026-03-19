@@ -22,11 +22,6 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>com.microsoft.playwright</groupId>
-			<artifactId>playwright</artifactId>
-			<version>1.41.0</version>
-		</dependency>
 	</dependencies>
 
 	<build>

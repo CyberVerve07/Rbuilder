@@ -344,84 +344,36 @@ function renderDynamic() {
 }
 
 // Export PDF Logic (Spring Boot Backend)
-function getApiBaseUrl() {
-    const { protocol, hostname, port } = window.location;
-
-    // If running locally via file:// or localhost, use the local backend
-    if (protocol === 'file:' || hostname === 'localhost' || hostname === '127.0.0.1') {
-        return 'http://localhost:8080';
-    }
-
-    // In a hosted environment (like Vercel), assume the backend is hosted at the same origin 
-    // BUT fallback to localhost for local testing if the API is not actually hosted there.
-    // For this project, we prioritize the local backend for PDF generation since it's a Spring Boot app.
-    return 'http://localhost:8080'; 
-}
-
 function getResumeFileName() {
-    const fullName = document.getElementById('inp-name').value.trim() || 'Resume';
-    return `${fullName.replace(/\s+/g, '_')}_Resume.pdf`;
+    return `${(resumeData.name || 'Resume').replace(/\s+/g, '_')}_Resume.pdf`;
 }
 
-function buildResumeHtmlForExport() {
-    const resumeHtml = document.getElementById('resume').outerHTML
-        .replace(/style="[^"]*transform:[^"]*"/g, 'style="transform: none;"');
-
-    return `
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-            <link rel="stylesheet" href="${new URL('css/style.css', window.location.href).href}">
-            <style>
-                *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-                body { background: white; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-                .resume-sheet { margin: 0; box-shadow: none; transform: none !important; }
-            </style>
-        </head>
-        <body>
-            ${resumeHtml}
-        </body>
-        </html>
-    `;
-}
-
-async function downloadPDF() {
+function downloadPDF() {
+    const element = document.getElementById('resume');
     const btn = document.getElementById('download-btn');
     const originalText = btn.innerHTML;
-    btn.innerHTML = 'Generating PDF...';
+
+    btn.innerHTML = 'Generating...';
     btn.disabled = true;
 
-    try {
-        const response = await fetch(`${getApiBaseUrl()}/api/pdf/generate`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ html: buildResumeHtmlForExport() })
-        });
+    const opt = {
+        margin: 10,
+        filename: getResumeFileName(),
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
 
-        if (!response.ok) {
-            const errorText = await response.text();
-            throw new Error(errorText || `PDF generation failed with status ${response.status}.`);
-        }
-
-        const blob = await response.blob();
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = getResumeFileName();
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        window.URL.revokeObjectURL(url);
-    } catch (error) {
-        console.error(error);
-        alert(`Failed to generate PDF. ${error.message} Make sure the Spring Boot backend is running on http://localhost:8080 and Playwright browsers are installed.`);
-    } finally {
+    html2pdf().set(opt).from(element).save().then(() => {
         btn.innerHTML = originalText;
         btn.disabled = false;
-    }
+        showToast("PDF Downloaded!");
+    }).catch(err => {
+        console.error(err);
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+        showToast("Error generating PDF");
+    });
 }
 
 // Initialize
