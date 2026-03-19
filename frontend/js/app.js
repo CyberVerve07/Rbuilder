@@ -360,65 +360,79 @@ function downloadPDF() {
     const resumeClone = element.cloneNode(true);
     resumeClone.style.transform = 'none'; // Remove any preview scaling
 
-    // Get all Styles from the document to include in the PDF
-    const styles = Array.from(document.querySelectorAll('style, link[rel="stylesheet"]'))
-        .map(el => el.outerHTML)
-        .join('\n');
+    // Fetch all CSS content to inline it
+    const styleTags = Array.from(document.querySelectorAll('style'));
+    let inlinedStyles = styleTags.map(el => el.innerHTML).join('\n');
+    
+    // For link tags, we try to fetch the content (this works if same-origin)
+    const linkTags = Array.from(document.querySelectorAll('link[rel="stylesheet"]'));
+    const stylesPromises = linkTags.map(link => 
+        fetch(link.href)
+            .then(res => res.text())
+            .catch(err => {
+                console.warn("Could not fetch external CSS for inlining:", link.href);
+                return "";
+            })
+    );
 
-    const htmlContent = `
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <meta charset="UTF-8">
-            ${styles}
-            <style>
-                body { background: white; margin: 0; padding: 0; }
-                .resume-sheet { box-shadow: none !important; margin: 0 !important; transform: none !important; }
-            </style>
-        </head>
-        <body>
-            ${resumeClone.outerHTML}
-        </body>
-        </html>
-    `;
-
-    fetch('http://localhost:8080/api/pdf/generate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ htmlContent: htmlContent })
-    })
-    .then(response => {
-        if (!response.ok) throw new Error('Backend error');
-        return response.blob();
-    })
-    .then(blob => {
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `${(document.getElementById('prev-r-name').innerText || 'Resume').replace(/\s+/g, '_')}_Resume.pdf`;
-        document.body.appendChild(a);
-        a.click();
-        window.URL.revokeObjectURL(url);
+    Promise.all(stylesPromises).then(externalStyles => {
+        const allStyles = inlinedStyles + '\n' + externalStyles.join('\n');
         
-        btn.innerHTML = originalText;
-        btn.disabled = false;
-        showToast("PDF Downloaded (Backend)!");
-    })
-    .catch(err => {
-        console.error("Backend PDF failed, falling back to frontend:", err);
-        // Fallback to html2pdf.js if backend is not running
-        const opt = {
-            margin: 10,
-            filename: `${(document.getElementById('prev-r-name').innerText || 'Resume').replace(/\s+/g, '_')}_Resume.pdf`,
-            image: { type: 'jpeg', quality: 0.98 },
-            html2canvas: { scale: 2, useCORS: true },
-            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-        };
+        const htmlContent = `
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <meta charset="UTF-8">
+                <style>
+                    ${allStyles}
+                    body { background: white; margin: 0; padding: 0; }
+                    .resume-sheet { box-shadow: none !important; margin: 0 !important; transform: none !important; }
+                </style>
+            </head>
+            <body>
+                ${resumeClone.outerHTML}
+            </body>
+            </html>
+        `;
 
-        html2pdf().set(opt).from(element).save().then(() => {
+        fetch('http://localhost:8080/api/pdf/generate', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ htmlContent: htmlContent })
+        })
+        .then(response => {
+            if (!response.ok) throw new Error('Backend error');
+            return response.blob();
+        })
+        .then(blob => {
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${(document.getElementById('prev-r-name').innerText || 'Resume').replace(/\s+/g, '_')}_Resume.pdf`;
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            
             btn.innerHTML = originalText;
             btn.disabled = false;
-            showToast("PDF Downloaded (Frontend Fallback)!");
+            showToast("PDF Downloaded (Backend)!");
+        })
+        .catch(err => {
+            console.error("Backend PDF failed, falling back to frontend:", err);
+            // Fallback to html2pdf.js if backend is not running
+            const opt = {
+                margin: 10,
+                filename: `${(document.getElementById('prev-r-name').innerText || 'Resume').replace(/\s+/g, '_')}_Resume.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                showToast("PDF Downloaded (Frontend Fallback)!");
+            });
         });
     });
 }
