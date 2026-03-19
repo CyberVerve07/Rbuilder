@@ -4,43 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume Builder — BCA Final Year Project</title>
+    <title>Resume Builder - BCA Final Year Project</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Lato:wght@300;400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <!-- Spring Boot handles PDF, so html2pdf is removed -->
 </head>
 
 <body>
-
-    <!-- TOP BAR -->
     <div class="topbar">
         <div class="logo">
-            <span class="logo-icon">📄</span> Resume Builder
+            <span class="logo-icon">RB</span> Resume Builder
             <span class="logo-sub">BCA FINAL YEAR PROJECT</span>
         </div>
         <div class="topbar-right">
-            <button class="btn-topbar btn-outline" onclick="clearAll()">🗑 Clear All</button>
-            <button class="btn-topbar btn-accent" id="download-btn" onclick="downloadPDF()">⬇ Download PDF</button>
+            <button class="btn-topbar btn-outline" onclick="clearAll()">Clear All</button>
+            <button class="btn-topbar btn-accent" id="download-btn" onclick="downloadPDF()">Download PDF</button>
         </div>
     </div>
 
     <div class="main">
-        <!-- EDITOR PANEL -->
         <div class="editor">
             <div class="tab-bar">
-                <button class="tab-btn active" onclick="switchTab('personal')">Personal</button>
-                <button class="tab-btn" onclick="switchTab('experience')">Experience</button>
-                <button class="tab-btn" onclick="switchTab('education')">Education</button>
-                <button class="tab-btn" onclick="switchTab('skills')">Skills</button>
-                <button class="tab-btn" onclick="switchTab('templates')">Templates</button>
+                <button class="tab-btn active" onclick="switchTab('personal', this)">Personal</button>
+                <button class="tab-btn" onclick="switchTab('experience', this)">Experience</button>
+                <button class="tab-btn" onclick="switchTab('education', this)">Education</button>
+                <button class="tab-btn" onclick="switchTab('skills', this)">Skills</button>
+                <button class="tab-btn" onclick="switchTab('templates', this)">Templates</button>
             </div>
             <div class="progress-bar">
                 <div class="progress-fill" style="width: 20%" id="progress"></div>
             </div>
 
-            <!-- Personal Details -->
             <div class="section-panel active" id="sec-personal">
                 <h2 class="section-heading">Personal Info</h2>
                 <p class="section-desc">Add your contact details and a professional summary.</p>
@@ -75,7 +70,6 @@
                 </div>
             </div>
 
-            <!-- Experience -->
             <div class="section-panel" id="sec-experience">
                 <h2 class="section-heading">Work Experience</h2>
                 <p class="section-desc">Highlight your previous jobs.</p>
@@ -83,7 +77,6 @@
                 <button class="btn-add" onclick="addExperience()">+ Add Experience</button>
             </div>
 
-            <!-- Education -->
             <div class="section-panel" id="sec-education">
                 <h2 class="section-heading">Education</h2>
                 <p class="section-desc">Add your academic qualifications.</p>
@@ -91,7 +84,6 @@
                 <button class="btn-add" onclick="addEducation()">+ Add Education</button>
             </div>
 
-            <!-- Skills -->
             <div class="section-panel" id="sec-skills">
                 <h2 class="section-heading">Skills</h2>
                 <p class="section-desc">What do you excel at?</p>
@@ -103,7 +95,6 @@
                 <div class="skills-grid" id="skills-list"></div>
             </div>
 
-            <!-- Templates -->
             <div class="section-panel" id="sec-templates">
                 <h2 class="section-heading">Templates</h2>
                 <p class="section-desc">Choose a design that catches the eye.</p>
@@ -123,19 +114,27 @@
                     <div class="template-card" onclick="setTemplate('resume-t4', event.currentTarget)">
                         <div class="template-preview"
                             style="background: linear-gradient(135deg, #6b4c9a 40%, #fafafa 40%);"></div>
-                        <div class="template-name">Modern Purple</div>
+                        <div class="template-name">Modern</div>
                     </div>
                     <div class="template-card" onclick="setTemplate('resume-t5', event.currentTarget)">
                         <div class="template-preview"
                             style="background: #fff; border-top: 4px solid #333; border-bottom: 4px solid #333;"></div>
                         <div class="template-name">Classic Serif</div>
                     </div>
+                    <div class="template-card" onclick="setTemplate('resume-t6', event.currentTarget)">
+                        <div class="template-preview"
+                            style="background: linear-gradient(135deg, #0f172a 0%, #0f172a 28%, #f8fafc 28%, #f8fafc 100%);"></div>
+                        <div class="template-name">Slate Edge</div>
+                    </div>
+                    <div class="template-card" onclick="setTemplate('resume-t7', event.currentTarget)">
+                        <div class="template-preview"
+                            style="background: linear-gradient(180deg, #f7efe5 0%, #f7efe5 48%, #8c5e3c 48%, #8c5e3c 100%);"></div>
+                        <div class="template-name">Editorial</div>
+                    </div>
                 </div>
             </div>
-
         </div>
 
-        <!-- PREVIEW PANEL -->
         <div class="preview-panel">
             <div class="preview-toolbar">
                 <span class="preview-label">Live Preview</span>

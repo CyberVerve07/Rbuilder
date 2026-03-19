@@ -10,6 +10,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.nio.charset.StandardCharsets;
+
 @RestController
 @RequestMapping("/api/pdf")
 @CrossOrigin(origins = "*") // Allow frontend to call across origins
@@ -23,9 +25,9 @@ public class PdfController {
             return ResponseEntity.badRequest().build();
         }
 
-        try (Playwright playwright = Playwright.create()) {
+        try (Playwright playwright = Playwright.create();
+             Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(true))) {
             System.out.println("Generating PDF with Playwright Chromium Engine...");
-            Browser browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(true));
             Page page = browser.newPage();
             
             // Set HTML content directly to the page rendering engine
@@ -53,7 +55,10 @@ public class PdfController {
         } catch (Exception e) {
             e.printStackTrace();
             System.err.println("Failed to render PDF using Playwright.");
-            return ResponseEntity.internalServerError().build();
+            String errorMessage = "Failed to render PDF using Playwright: " + e.getMessage();
+            return ResponseEntity.internalServerError()
+                    .contentType(MediaType.TEXT_PLAIN)
+                    .body(errorMessage.getBytes(StandardCharsets.UTF_8));
         }
     }
 }

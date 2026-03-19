@@ -74,8 +74,17 @@ body {
 }
 
 .logo-icon {
-    font-size: 22px;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--accent), #8fa0ff);
+    color: #fff;
+    font-size: 12px;
     line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.08em;
 }
 
 .logo-sub {
@@ -1225,6 +1234,257 @@ body {
     font-size: 13.5px;
     color: #333;
     line-height: 1.6;
+}
+
+/* --- Template 6: Slate Edge --- */
+.resume-t6 {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(90deg, #0f172a 0 23%, #ffffff 23% 100%);
+}
+
+.resume-t6 .r-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+    padding: 42px 42px 24px;
+}
+
+.resume-t6 .r-name {
+    font-size: 38px;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    color: #0f172a;
+}
+
+.resume-t6 .r-title {
+    margin-top: 6px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: #475569;
+}
+
+.resume-t6 .r-contact-row {
+    justify-content: flex-end;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.resume-t6 .r-contact-item {
+    font-size: 11px;
+    color: #cbd5e1;
+    background: rgba(15, 23, 42, 0.92);
+    padding: 6px 10px;
+    border-radius: 999px;
+}
+
+.resume-t6 .r-body {
+    display: grid;
+    grid-template-columns: 190px 1fr;
+    gap: 26px;
+    padding: 0 42px 42px;
+}
+
+.resume-t6 .r-sidebar {
+    padding: 26px 18px;
+    color: #e2e8f0;
+}
+
+.resume-t6 .r-main {
+    padding: 10px 0 0;
+}
+
+.resume-t6 .r-section {
+    margin-bottom: 24px;
+}
+
+.resume-t6 .r-section-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #0f172a;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #dbe4f0;
+}
+
+.resume-t6 .r-sidebar .r-section-title {
+    color: #f8fafc;
+    border-bottom-color: rgba(226, 232, 240, 0.18);
+}
+
+.resume-t6 .r-entry {
+    margin-bottom: 14px;
+}
+
+.resume-t6 .r-entry-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.resume-t6 .r-sidebar .r-entry-title,
+.resume-t6 .r-sidebar .r-skill-item {
+    color: #f8fafc;
+}
+
+.resume-t6 .r-entry-sub {
+    font-size: 12px;
+    color: #2563eb;
+    font-weight: 600;
+}
+
+.resume-t6 .r-sidebar .r-entry-sub,
+.resume-t6 .r-sidebar .r-entry-date,
+.resume-t6 .r-sidebar .r-summary {
+    color: #cbd5e1;
+}
+
+.resume-t6 .r-entry-date {
+    font-size: 11px;
+    color: #64748b;
+    margin: 3px 0;
+}
+
+.resume-t6 .r-entry-desc,
+.resume-t6 .r-summary {
+    font-size: 12.5px;
+    line-height: 1.65;
+    color: #334155;
+}
+
+.resume-t6 .r-skill-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    width: 100%;
+    font-size: 12px;
+    padding: 4px 0;
+}
+
+.resume-t6 .r-skill-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #60a5fa;
+    flex-shrink: 0;
+}
+
+/* --- Template 7: Warm Editorial --- */
+.resume-t7 {
+    font-family: 'DM Sans', sans-serif;
+    background: #fffaf5;
+}
+
+.resume-t7 .r-header {
+    padding: 44px 48px 28px;
+    background: linear-gradient(180deg, #f7efe5 0%, #fdfaf6 100%);
+    border-bottom: 1px solid #e7d6c4;
+    text-align: center;
+}
+
+.resume-t7 .r-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: #5f3b24;
+    line-height: 1.08;
+}
+
+.resume-t7 .r-title {
+    margin-top: 10px;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #8c5e3c;
+}
+
+.resume-t7 .r-contact-row {
+    justify-content: center;
+    gap: 10px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+}
+
+.resume-t7 .r-contact-item {
+    font-size: 12px;
+    color: #6b4a32;
+    padding: 6px 10px;
+    border: 1px solid #dcc5ae;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.72);
+}
+
+.resume-t7 .r-body {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 34px;
+    padding: 32px 48px 40px;
+}
+
+.resume-t7 .r-section {
+    margin-bottom: 26px;
+}
+
+.resume-t7 .r-section-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #8c5e3c;
+    margin-bottom: 14px;
+}
+
+.resume-t7 .r-entry {
+    margin-bottom: 18px;
+}
+
+.resume-t7 .r-entry-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #2f241d;
+}
+
+.resume-t7 .r-entry-sub {
+    font-size: 13px;
+    color: #8c5e3c;
+    margin-top: 2px;
+}
+
+.resume-t7 .r-entry-date {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #9b7c63;
+    margin: 4px 0 6px;
+}
+
+.resume-t7 .r-entry-desc,
+.resume-t7 .r-summary {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #4a3a30;
+}
+
+.resume-t7 .r-skill-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid #e1cdbb;
+    background: #fff;
+    color: #6b4a32;
+    font-size: 12px;
+    margin: 0 8px 8px 0;
+}
+
+.resume-t7 .r-skill-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #c08a5b;
+    flex-shrink: 0;
 }
 
 /* Placeholder */
