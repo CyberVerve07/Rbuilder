@@ -1,8 +1,12 @@
 // App State
 let zoom = 1;
 let expData = [{ title: 'Software Engineer', company: 'Tech Inc', date: '2020 - Present', desc: 'Developed web applications.' }];
+let projectData = [{ title: 'Resume Forge', link: 'github.com/user/resume-forge', desc: 'A premium resume builder with real-time preview.' }];
 let eduData = [{ degree: 'BCA', school: 'ABC University', date: '2016 - 2019' }];
 let skillsData = ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js'];
+let certsData = [{ name: 'AWS Certified Developer', issuer: 'Amazon Web Services', date: '2023' }];
+let langsData = [{ name: 'English', level: 'Native' }, { name: 'Spanish', level: 'Intermediate' }];
+let interestsData = 'Coding, AI, Open Source, Hiking';
 
 // Zoom controls
 function zoomIn() {
@@ -43,13 +47,15 @@ function switchTab(tab, trigger) {
 
     document.getElementById(`sec-${tab}`).classList.add('active');
 
-    const index = ['personal', 'experience', 'education', 'skills', 'templates'].indexOf(tab);
-    document.getElementById('progress').style.width = `${(index + 1) * 20}%`;
+    const tabs = ['personal', 'experience', 'projects', 'education', 'skills', 'certs', 'languages', 'templates'];
+    const index = tabs.indexOf(tab);
+    document.getElementById('progress').style.width = `${((index + 1) / tabs.length) * 100}%`;
 }
 
 // Simple bi-directional update for plain text fields
 function updatePreview(id, val) {
-    document.getElementById(`prev-${id}`).innerText = val;
+    const el = document.getElementById(`prev-${id}`);
+    if (el) el.innerText = val;
 }
 
 // Template Switcher
@@ -61,7 +67,7 @@ function setTemplate(className, el) {
     resume.className = `resume-sheet ${className}`;
 
     const contactBlock = document.getElementById('r-contact-container');
-    if (['resume-t2', 'resume-t4', 'resume-t5', 'resume-t6', 'resume-t7'].includes(className)) {
+    if (['resume-t2', 'resume-t4', 'resume-t5', 'resume-t6', 'resume-t7', 'resume-t9', 'resume-t10'].includes(className)) {
         contactBlock.className = 'r-contact-row';
     } else {
         contactBlock.className = 'r-contact-block';
@@ -75,11 +81,16 @@ function clearAll() {
         });
 
         expData = [];
+        projectData = [];
         eduData = [];
         skillsData = [];
+        certsData = [];
+        langsData = [];
+        interestsData = '';
 
         ['r-name', 'r-title', 'r-contact-email', 'r-contact-phone', 'r-contact-loc', 'r-contact-link', 'r-summary-text'].forEach((id) => {
-            document.getElementById(`prev-${id}`).innerText = '';
+            const el = document.getElementById(`prev-${id}`);
+            if (el) el.innerText = '';
         });
 
         renderDynamic();
@@ -125,6 +136,46 @@ function renderExpPreview() {
       ${e.company ? `<div class="r-entry-sub">${e.company}</div>` : ''}
       <div class="r-entry-date">${e.date}</div>
       <div class="r-entry-desc">${e.desc}</div>
+    </div>
+  `).join('');
+}
+
+// Project Logic
+function addProject() {
+    projectData.push({ title: '', link: '', desc: '' });
+    renderProjects();
+}
+
+function updateProject(index, field, val) {
+    projectData[index][field] = val;
+    renderProjectsPreview();
+}
+
+function removeProject(index) {
+    projectData.splice(index, 1);
+    renderProjects();
+}
+
+function renderProjects() {
+    document.getElementById('project-list').innerHTML = projectData.map((p, i) => `
+    <div class="entry-card">
+      <div class="entry-card-header">
+        <div class="entry-card-title">Project ${i + 1}</div>
+        <button class="btn-remove" onclick="removeProject(${i})">&times;</button>
+      </div>
+      <input class="form-input" value="${p.title}" oninput="updateProject(${i}, 'title', this.value)" placeholder="Project Title">
+      <input class="form-input" value="${p.link}" oninput="updateProject(${i}, 'link', this.value)" placeholder="Link (GitHub / Demo)">
+      <textarea class="form-textarea" oninput="updateProject(${i}, 'desc', this.value)" placeholder="Project Description">${p.desc}</textarea>
+    </div>
+  `).join('');
+    renderProjectsPreview();
+}
+
+function renderProjectsPreview() {
+    document.getElementById('prev-project-list').innerHTML = projectData.map((p) => `
+    <div class="r-entry">
+      <div class="r-entry-title">${p.title} ${p.link ? `<small style="font-weight:400; color:var(--accent); margin-left:8px;">${p.link}</small>` : ''}</div>
+      <div class="r-entry-desc">${p.desc}</div>
     </div>
   `).join('');
 }
@@ -196,10 +247,100 @@ function renderSkills() {
   `).join('');
 }
 
+// Interests Logic
+function updateInterests(val) {
+    interestsData = val;
+    document.getElementById('prev-interests-list').innerText = val;
+}
+
+// Certifications Logic
+function addCert() {
+    certsData.push({ name: '', issuer: '', date: '' });
+    renderCerts();
+}
+
+function updateCert(index, field, val) {
+    certsData[index][field] = val;
+    renderCertsPreview();
+}
+
+function removeCert(index) {
+    certsData.splice(index, 1);
+    renderCerts();
+}
+
+function renderCerts() {
+    document.getElementById('certs-list').innerHTML = certsData.map((c, i) => `
+    <div class="entry-card">
+      <div class="entry-card-header">
+        <div class="entry-card-title">Certification ${i + 1}</div>
+        <button class="btn-remove" onclick="removeCert(${i})">&times;</button>
+      </div>
+      <input class="form-input" value="${c.name}" oninput="updateCert(${i}, 'name', this.value)" placeholder="Certification Name">
+      <input class="form-input" value="${c.issuer}" oninput="updateCert(${i}, 'issuer', this.value)" placeholder="Issuing Organization">
+      <input class="form-input" value="${c.date}" oninput="updateCert(${i}, 'date', this.value)" placeholder="Date">
+    </div>
+  `).join('');
+    renderCertsPreview();
+}
+
+function renderCertsPreview() {
+    document.getElementById('prev-certs-list').innerHTML = certsData.map((c) => `
+    <div class="r-entry">
+      <div class="r-entry-title">${c.name}</div>
+      <div class="r-entry-sub">${c.issuer} | ${c.date}</div>
+    </div>
+  `).join('');
+}
+
+// Languages Logic
+function addLang() {
+    langsData.push({ name: '', level: '' });
+    renderLangs();
+}
+
+function updateLang(index, field, val) {
+    langsData[index][field] = val;
+    renderLangsPreview();
+}
+
+function removeLang(index) {
+    langsData.splice(index, 1);
+    renderLangs();
+}
+
+function renderLangs() {
+    document.getElementById('langs-list').innerHTML = langsData.map((l, i) => `
+    <div class="entry-card">
+      <div class="entry-card-header">
+        <div class="entry-card-title">Language ${i + 1}</div>
+        <button class="btn-remove" onclick="removeLang(${i})">&times;</button>
+      </div>
+      <input class="form-input" value="${l.name}" oninput="updateLang(${i}, 'name', this.value)" placeholder="Language (e.g. English)">
+      <input class="form-input" value="${l.level}" oninput="updateLang(${i}, 'level', this.value)" placeholder="Proficiency (e.g. Native)">
+    </div>
+  `).join('');
+    renderLangsPreview();
+}
+
+function renderLangsPreview() {
+    document.getElementById('prev-langs-list').innerHTML = langsData.map((l) => `
+    <div class="r-entry" style="display:flex; justify-content:space-between;">
+      <span style="font-weight:600;">${l.name}</span>
+      <span style="color:var(--accent); font-size:12px;">${l.level}</span>
+    </div>
+  `).join('');
+}
+
 function renderDynamic() {
     renderExp();
+    renderProjects();
     renderEdu();
     renderSkills();
+    renderCerts();
+    renderLangs();
+    document.getElementById('inp-interests').value = interestsData;
+    document.getElementById('prev-interests-list').innerText = interestsData;
 }
 
 // Export PDF Logic (Spring Boot Backend)

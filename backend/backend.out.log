@@ -1046,3 +1046,90 @@ Downloading Firefox 121.0 (playwright build v1438)[2m from https://playwright-a
 |                                                                                |   0% of 80.9 MiB
 |■■■■■■■■                                                                        |  10% of 80.9 MiB
 |■■■■■■■■■■■■■■■■                                                                |  20% of 80.9 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 80.9 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 80.9 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 80.9 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 80.9 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 80.9 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 80.9 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 80.9 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 80.9 MiB
+Firefox 121.0 (playwright build v1438) downloaded to C:\Users\lenovo\AppData\Local\ms-playwright\firefox-1438
+Downloading Webkit 17.4 (playwright build v1967)[2m from https://playwright.azureedge.net/builds/webkit/1967/webkit-win64.zip[22m
+Downloading Webkit 17.4 (playwright build v1967)[2m from https://playwright-akamai.azureedge.net/builds/webkit/1967/webkit-win64.zip[22m
+|                                                                                |   0% of 46.6 MiB
+|■■■■■■■■                                                                        |  10% of 46.6 MiB
+|■■■■■■■■■■■■■■■■                                                                |  20% of 46.6 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 46.6 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 46.6 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 46.6 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 46.6 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 46.6 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 46.6 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 46.6 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 46.6 MiB
+Webkit 17.4 (playwright build v1967) downloaded to C:\Users\lenovo\AppData\Local\ms-playwright\webkit-1967
+Generating PDF with Playwright Chromium Engine...
+PDF generated successfully!
+2026-03-19T19:47:38.477+05:30 DEBUG 18156 --- [nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:application/pdf' in response
+2026-03-19T19:47:38.483+05:30 DEBUG 18156 --- [nio-8080-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{37, 80, 68, 70, 45, 49, 46, 52, 10, 37, -45, -21, -23, -31, 10, 49, 32, 48, 32, 111, 98, 106, 10, 6 (truncated)...]
+2026-03-19T19:47:38.490+05:30 DEBUG 18156 --- [nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Failed to complete request: org.apache.catalina.connector.ClientAbortException: java.io.IOException: Connection reset by peer
+2026-03-19T19:50:11.718+05:30 DEBUG 18156 --- [nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/index.html", parameters={}
+2026-03-19T19:50:11.726+05:30 DEBUG 18156 --- [nio-8080-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:../], URL [file:./], classpath [static/]]
+2026-03-19T19:50:11.737+05:30 DEBUG 18156 --- [nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-03-19T19:50:11.841+05:30 DEBUG 18156 --- [nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/css/style.css", parameters={}
+2026-03-19T19:50:11.845+05:30 DEBUG 18156 --- [nio-8080-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:../], URL [file:./], classpath [static/]]
+2026-03-19T19:50:11.845+05:30 DEBUG 18156 --- [nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/js/app.js", parameters={}
+2026-03-19T19:50:11.848+05:30 DEBUG 18156 --- [nio-8080-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:../], URL [file:./], classpath [static/]]
+2026-03-19T19:50:11.851+05:30 DEBUG 18156 --- [nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-03-19T19:50:11.855+05:30 DEBUG 18156 --- [nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-03-19T19:50:13.598+05:30 DEBUG 18156 --- [nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/favicon.ico", parameters={}
+2026-03-19T19:50:13.600+05:30 DEBUG 18156 --- [nio-8080-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:../], URL [file:./], classpath [static/]]
+2026-03-19T19:50:13.612+05:30 DEBUG 18156 --- [nio-8080-exec-7] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2026-03-19T19:50:13.619+05:30 DEBUG 18156 --- [nio-8080-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.]
+2026-03-19T19:50:13.620+05:30 DEBUG 18156 --- [nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2026-03-19T19:50:13.621+05:30 DEBUG 18156 --- [nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2026-03-19T19:50:13.630+05:30 DEBUG 18156 --- [nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2026-03-19T19:50:13.667+05:30 DEBUG 18156 --- [nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json;q=0.8', given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8] and supported [application/json, application/*+json]
+2026-03-19T19:50:13.677+05:30 DEBUG 18156 --- [nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Thu Mar 19 19:50:13 IST 2026, status=404, error=Not Found, path=/favicon.ico}]
+2026-03-19T19:50:13.732+05:30 DEBUG 18156 --- [nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2026-03-19T19:50:23.151+05:30 DEBUG 18156 --- [nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : POST "/api/pdf/generate", parameters={}
+2026-03-19T19:50:23.159+05:30 DEBUG 18156 --- [nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.resumebuilder.controller.PdfController#generatePdf(PdfRequest)
+2026-03-19T19:50:23.179+05:30 DEBUG 18156 --- [nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.resumebuilder.dto.PdfRequest@a1af74e]
+Generating PDF with Playwright Chromium Engine...
+2026-03-19T19:50:25.148+05:30 DEBUG 18156 --- [nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/css/style.css", parameters={}
+2026-03-19T19:50:25.150+05:30 DEBUG 18156 --- [nio-8080-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:../], URL [file:./], classpath [static/]]
+2026-03-19T19:50:25.152+05:30 DEBUG 18156 --- [nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+PDF generated successfully!
+2026-03-19T19:50:29.760+05:30 DEBUG 18156 --- [nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:application/pdf' in response
+2026-03-19T19:50:29.765+05:30 DEBUG 18156 --- [nio-8080-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{37, 80, 68, 70, 45, 49, 46, 52, 10, 37, -45, -21, -23, -31, 10, 49, 32, 48, 32, 111, 98, 106, 10, 6 (truncated)...]
+2026-03-19T19:50:29.766+05:30 DEBUG 18156 --- [nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-03-19T19:56:31.142+05:30 DEBUG 18156 --- [nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/index.html", parameters={}
+2026-03-19T19:56:31.144+05:30 DEBUG 18156 --- [nio-8080-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:../], URL [file:./], classpath [static/]]
+2026-03-19T19:56:31.150+05:30 DEBUG 18156 --- [nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-03-19T19:56:31.198+05:30 DEBUG 18156 --- [nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/css/style.css", parameters={}
+2026-03-19T19:56:31.198+05:30 DEBUG 18156 --- [nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/js/app.js", parameters={}
+2026-03-19T19:56:31.199+05:30 DEBUG 18156 --- [nio-8080-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:../], URL [file:./], classpath [static/]]
+2026-03-19T19:56:31.201+05:30 DEBUG 18156 --- [nio-8080-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:../], URL [file:./], classpath [static/]]
+2026-03-19T19:56:31.203+05:30 DEBUG 18156 --- [nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-03-19T19:56:31.207+05:30 DEBUG 18156 --- [nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-03-19T19:56:55.212+05:30 DEBUG 18156 --- [nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/index.html", parameters={}
+2026-03-19T19:56:55.216+05:30 DEBUG 18156 --- [nio-8080-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:../], URL [file:./], classpath [static/]]
+2026-03-19T19:56:55.218+05:30 DEBUG 18156 --- [nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED
+2026-03-19T19:56:55.261+05:30 DEBUG 18156 --- [nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/css/style.css", parameters={}
+2026-03-19T19:56:55.261+05:30 DEBUG 18156 --- [nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/js/app.js", parameters={}
+2026-03-19T19:56:55.263+05:30 DEBUG 18156 --- [nio-8080-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:../], URL [file:./], classpath [static/]]
+2026-03-19T19:56:55.263+05:30 DEBUG 18156 --- [nio-8080-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:../], URL [file:./], classpath [static/]]
+2026-03-19T19:56:55.265+05:30 DEBUG 18156 --- [nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED
+2026-03-19T19:56:55.266+05:30 DEBUG 18156 --- [nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED
+2026-03-19T19:57:44.069+05:30 DEBUG 18156 --- [io-8080-exec-10] o.s.web.servlet.DispatcherServlet        : POST "/api/pdf/generate", parameters={}
+2026-03-19T19:57:44.070+05:30 DEBUG 18156 --- [io-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.resumebuilder.controller.PdfController#generatePdf(PdfRequest)
+2026-03-19T19:57:44.073+05:30 DEBUG 18156 --- [io-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.resumebuilder.dto.PdfRequest@3e952831]
+Generating PDF with Playwright Chromium Engine...
+2026-03-19T19:57:45.926+05:30 DEBUG 18156 --- [nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/css/style.css", parameters={}
+2026-03-19T19:57:45.927+05:30 DEBUG 18156 --- [nio-8080-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:../], URL [file:./], classpath [static/]]
+2026-03-19T19:57:45.929+05:30 DEBUG 18156 --- [nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+PDF generated successfully!
+2026-03-19T19:57:47.428+05:30 DEBUG 18156 --- [io-8080-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:application/pdf' in response
+2026-03-19T19:57:47.471+05:30 DEBUG 18156 --- [io-8080-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{37, 80, 68, 70, 45, 49, 46, 52, 10, 37, -45, -21, -23, -31, 10, 49, 32, 48, 32, 111, 98, 106, 10, 6 (truncated)...]
+2026-03-19T19:57:47.477+05:30 DEBUG 18156 --- [io-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK

@@ -1487,7 +1487,195 @@ body {
     flex-shrink: 0;
 }
 
+/* --- Template 8: Minimalist Professional --- */
+.resume-t8 {
+    font-family: 'Inter', sans-serif;
+    color: #1a1a1a;
+    background: #fff;
+    padding: 60px 48px;
+}
+
+.resume-t8 .r-header {
+    border-bottom: 2px solid #000;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.resume-t8 .r-name {
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+}
+
+.resume-t8 .r-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #444;
+    margin-top: 4px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.resume-t8 .r-contact-row {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.resume-t8 .r-body {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+}
+
+.resume-t8 .r-section-title {
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    border-bottom: 1px solid #000;
+    padding-bottom: 5px;
+    margin-bottom: 12px;
+}
+
+.resume-t8 .r-entry {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.resume-t8 .r-entry-date {
+    font-size: 10px;
+    font-weight: 700;
+    color: #777;
+}
+
+.resume-t8 .r-entry-title {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.resume-t8 .r-entry-sub {
+    font-size: 12px;
+    font-weight: 600;
+    color: #333;
+}
+
+.resume-t8 .r-entry-desc {
+    font-size: 12px;
+    line-height: 1.5;
+    margin-top: 4px;
+}
+
+/* --- Template 9: Tech Focus --- */
+.resume-t9 {
+    font-family: 'Inter', sans-serif;
+    background: #0f172a;
+    color: #f8fafc;
+}
+
+.resume-t9 .r-header {
+    padding: 48px;
+    background: #1e293b;
+    border-left: 8px solid #38bdf8;
+}
+
+.resume-t9 .r-name {
+    font-size: 38px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.resume-t9 .r-title {
+    color: #38bdf8;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.resume-t9 .r-body {
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 40px;
+}
+
+.resume-t9 .r-section-title {
+    color: #38bdf8;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+}
+
+.resume-t9 .r-entry {
+    margin-bottom: 20px;
+    border-left: 1px solid #334155;
+    padding-left: 15px;
+}
+
+.resume-t9 .r-entry-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.resume-t9 .r-entry-desc {
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: #cbd5e1;
+}
+
+/* --- Template 10: Creative --- */
+.resume-t10 {
+    font-family: 'DM Sans', sans-serif;
+    background: #fff;
+}
+
+.resume-t10 .r-header {
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    padding: 50px 48px;
+    color: #fff;
+}
+
+.resume-t10 .r-name {
+    font-size: 44px;
+    font-weight: 800;
+}
+
+.resume-t10 .r-body {
+    padding: 40px 48px;
+    display: grid;
+    grid-template-columns: 1fr 240px;
+    gap: 40px;
+}
+
+.resume-t10 .r-section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #6366f1;
+}
+
+.resume-t10 .r-entry {
+    margin-bottom: 20px;
+    background: #f8fafc;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+/* Global Preview Section Styles */
+#prev-project-list .r-entry,
+#prev-certs-list .r-entry,
+#prev-langs-list .r-entry {
+    margin-bottom: 12px;
+}
+
 /* Placeholder */
+
 .r-placeholder {
     color: #bbb;
     font-style: italic;

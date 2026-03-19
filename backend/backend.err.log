@@ -8,3 +8,13 @@ Error: Download failed: server returned code 400 body 'GatewayExceptionResponse'
     at IncomingMessage.emit (node:events:530:35)
     at endReadableNT (node:internal/streams/readable:1696:12)
     at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+Error: Download failed: server returned code 400 body 'GatewayExceptionResponse'. URL: https://playwright.azureedge.net/builds/firefox/1438/firefox-win64.zip
+    at IncomingMessage.handleError (C:\Users\lenovo\AppData\Local\Temp\playwright-java-493058743778027804\package\lib\server\registry\oopDownloadBrowserMain.js:62:23)
+    at IncomingMessage.emit (node:events:530:35)
+    at endReadableNT (node:internal/streams/readable:1696:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+Error: Download failed: server returned code 400 body 'GatewayExceptionResponse'. URL: https://playwright.azureedge.net/builds/webkit/1967/webkit-win64.zip
+    at IncomingMessage.handleError (C:\Users\lenovo\AppData\Local\Temp\playwright-java-493058743778027804\package\lib\server\registry\oopDownloadBrowserMain.js:62:23)
+    at IncomingMessage.emit (node:events:530:35)
+    at endReadableNT (node:internal/streams/readable:1696:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)

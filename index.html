@@ -28,8 +28,11 @@
             <div class="tab-bar">
                 <button class="tab-btn active" onclick="switchTab('personal', this)">Personal</button>
                 <button class="tab-btn" onclick="switchTab('experience', this)">Experience</button>
+                <button class="tab-btn" onclick="switchTab('projects', this)">Projects</button>
                 <button class="tab-btn" onclick="switchTab('education', this)">Education</button>
                 <button class="tab-btn" onclick="switchTab('skills', this)">Skills</button>
+                <button class="tab-btn" onclick="switchTab('certs', this)">Certifications</button>
+                <button class="tab-btn" onclick="switchTab('languages', this)">Languages</button>
                 <button class="tab-btn" onclick="switchTab('templates', this)">Templates</button>
             </div>
             <div class="progress-bar">
@@ -77,6 +80,13 @@
                 <button class="btn-add" onclick="addExperience()">+ Add Experience</button>
             </div>
 
+            <div class="section-panel" id="sec-projects">
+                <h2 class="section-heading">Projects</h2>
+                <p class="section-desc">Showcase your best work and personal projects.</p>
+                <div id="project-list"></div>
+                <button class="btn-add" onclick="addProject()">+ Add Project</button>
+            </div>
+
             <div class="section-panel" id="sec-education">
                 <h2 class="section-heading">Education</h2>
                 <p class="section-desc">Add your academic qualifications.</p>
@@ -93,6 +103,23 @@
                     <button class="btn-add-skill" onclick="addSkill()">+</button>
                 </div>
                 <div class="skills-grid" id="skills-list"></div>
+                
+                <h3 class="section-subheading" style="margin-top:20px; font-size:14px; color:var(--text-muted);">Interests</h3>
+                <input type="text" class="form-input" id="inp-interests" oninput="updateInterests(this.value)" placeholder="e.g. Hiking, Reading, Cooking">
+            </div>
+
+            <div class="section-panel" id="sec-certs">
+                <h2 class="section-heading">Certifications</h2>
+                <p class="section-desc">Add your professional certifications.</p>
+                <div id="certs-list"></div>
+                <button class="btn-add" onclick="addCert()">+ Add Certification</button>
+            </div>
+
+            <div class="section-panel" id="sec-languages">
+                <h2 class="section-heading">Languages</h2>
+                <p class="section-desc">What languages do you speak?</p>
+                <div id="langs-list"></div>
+                <button class="btn-add" onclick="addLang()">+ Add Language</button>
             </div>
 
             <div class="section-panel" id="sec-templates">
@@ -130,6 +157,18 @@
                         <div class="template-preview"
                             style="background: linear-gradient(180deg, #f7efe5 0%, #f7efe5 48%, #8c5e3c 48%, #8c5e3c 100%);"></div>
                         <div class="template-name">Editorial</div>
+                    </div>
+                    <div class="template-card" onclick="setTemplate('resume-t8', event.currentTarget)">
+                        <div class="template-preview" style="background: #000; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 20px; font-weight: 700;">Aa</div>
+                        <div class="template-name">Minimalist</div>
+                    </div>
+                    <div class="template-card" onclick="setTemplate('resume-t9', event.currentTarget)">
+                        <div class="template-preview" style="background: repeating-linear-gradient(45deg, #0f172a, #0f172a 10px, #1e293b 10px, #1e293b 20px);"></div>
+                        <div class="template-name">Tech Focus</div>
+                    </div>
+                    <div class="template-card" onclick="setTemplate('resume-t10', event.currentTarget)">
+                        <div class="template-preview" style="background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);"></div>
+                        <div class="template-name">Creative</div>
                     </div>
                 </div>
             </div>
@@ -169,6 +208,10 @@
                             <div class="r-section-title">Experience</div>
                             <div id="prev-exp-list"></div>
                         </div>
+                        <div class="r-section">
+                            <div class="r-section-title">Projects</div>
+                            <div id="prev-project-list"></div>
+                        </div>
                     </div>
                     <div class="r-sidebar">
                         <div class="r-section">
@@ -179,6 +222,18 @@
                         <div class="r-section">
                             <div class="r-section-title">Education</div>
                             <div id="prev-edu-list"></div>
+                        </div>
+                        <div class="r-section">
+                            <div class="r-section-title">Certifications</div>
+                            <div id="prev-certs-list"></div>
+                        </div>
+                        <div class="r-section">
+                            <div class="r-section-title">Languages</div>
+                            <div id="prev-langs-list"></div>
+                        </div>
+                        <div class="r-section">
+                            <div class="r-section-title">Interests</div>
+                            <div id="prev-interests-list" style="font-size:12.5px; color:#555;"></div>
                         </div>
                     </div>
                 </div>
