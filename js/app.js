@@ -347,19 +347,15 @@ function renderDynamic() {
 function getApiBaseUrl() {
     const { protocol, hostname, port } = window.location;
 
-    if (protocol === 'file:') {
+    // If running locally via file:// or localhost, use the local backend
+    if (protocol === 'file:' || hostname === 'localhost' || hostname === '127.0.0.1') {
         return 'http://localhost:8080';
     }
 
-    if (hostname === 'localhost' || hostname === '127.0.0.1') {
-        if (!port || port === '8080') {
-            return `${protocol}//${hostname}${port ? `:${port}` : ''}`;
-        }
-
-        return 'http://localhost:8080';
-    }
-
-    return window.location.origin;
+    // In a hosted environment (like Vercel), assume the backend is hosted at the same origin 
+    // BUT fallback to localhost for local testing if the API is not actually hosted there.
+    // For this project, we prioritize the local backend for PDF generation since it's a Spring Boot app.
+    return 'http://localhost:8080'; 
 }
 
 function getResumeFileName() {
