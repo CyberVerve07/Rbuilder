@@ -3,15 +3,15 @@
   "name": "rbuilder",
   "builds": [
     {
-      "src": "frontend/index.html",
+      "src": "index.html",
       "use": "@vercel/static"
     },
     {
-      "src": "frontend/css/**",
+      "src": "css/**",
       "use": "@vercel/static"
     },
     {
-      "src": "frontend/js/**",
+      "src": "js/**",
       "use": "@vercel/static"
     }
   ],
@@ -21,7 +21,7 @@
     },
     {
       "src": "/.*",
-      "dest": "/frontend/index.html"
+      "dest": "/index.html"
     }
   ]
 }
