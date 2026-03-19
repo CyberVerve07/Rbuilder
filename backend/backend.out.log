@@ -993,3 +993,37 @@ Unconditional classes:
 2026-03-19T19:43:16.255+05:30  INFO 18156 --- [           main] c.r.ResumeBuilderApplication             : Started ResumeBuilderApplication in 4.438 seconds (process running for 5.217)
 2026-03-19T19:43:16.257+05:30 DEBUG 18156 --- [           main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
 2026-03-19T19:43:16.258+05:30 DEBUG 18156 --- [           main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+2026-03-19T19:43:39.311+05:30  INFO 18156 --- [nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-19T19:43:39.312+05:30  INFO 18156 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-03-19T19:43:39.312+05:30 DEBUG 18156 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2026-03-19T19:43:39.313+05:30 DEBUG 18156 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2026-03-19T19:43:39.313+05:30 DEBUG 18156 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2026-03-19T19:43:39.314+05:30 DEBUG 18156 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@22466d2e
+2026-03-19T19:43:39.315+05:30 DEBUG 18156 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@68c2d588
+2026-03-19T19:43:39.316+05:30 DEBUG 18156 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2026-03-19T19:43:39.317+05:30  INFO 18156 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2026-03-19T19:43:39.326+05:30 DEBUG 18156 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/", parameters={}
+2026-03-19T19:43:39.333+05:30 DEBUG 18156 --- [nio-8080-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ParameterizableViewController [view="forward:/index.html"]
+2026-03-19T19:43:39.345+05:30 DEBUG 18156 --- [nio-8080-exec-2] o.s.w.s.v.ContentNegotiatingViewResolver : Selected '*/*' given [*/*]
+2026-03-19T19:43:39.347+05:30 DEBUG 18156 --- [nio-8080-exec-2] o.s.w.servlet.view.InternalResourceView  : View name 'forward:', model {}
+2026-03-19T19:43:39.350+05:30 DEBUG 18156 --- [nio-8080-exec-2] o.s.w.servlet.view.InternalResourceView  : Forwarding to [/index.html]
+2026-03-19T19:43:39.354+05:30 DEBUG 18156 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : "FORWARD" dispatch for GET "/index.html", parameters={}
+2026-03-19T19:43:39.361+05:30 DEBUG 18156 --- [nio-8080-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:../], URL [file:./], classpath [static/]]
+2026-03-19T19:43:39.383+05:30 DEBUG 18156 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Exiting from "FORWARD" dispatch, status 200
+2026-03-19T19:43:39.385+05:30 DEBUG 18156 --- [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-03-19T19:44:18.973+05:30 DEBUG 18156 --- [nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : POST "/api/pdf/generate", parameters={}
+2026-03-19T19:44:18.976+05:30 DEBUG 18156 --- [nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.resumebuilder.controller.PdfController#generatePdf(PdfRequest)
+2026-03-19T19:44:19.083+05:30 DEBUG 18156 --- [nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.resumebuilder.dto.PdfRequest@1de5e35b]
+Downloading Chromium 121.0.6167.57 (playwright build v1097)[2m from https://playwright.azureedge.net/builds/chromium/1097/chromium-win64.zip[22m
+Downloading Chromium 121.0.6167.57 (playwright build v1097)[2m from https://playwright-akamai.azureedge.net/builds/chromium/1097/chromium-win64.zip[22m
+|                                                                                |   0% of 122.2 MiB
+|■■■■■■■■                                                                        |  10% of 122.2 MiB
+|■■■■■■■■■■■■■■■■                                                                |  20% of 122.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 122.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 122.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 122.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 122.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 122.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 122.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 122.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 122.2 MiB
