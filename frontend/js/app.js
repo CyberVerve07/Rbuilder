@@ -353,26 +353,73 @@ function downloadPDF() {
     const btn = document.getElementById('download-btn');
     const originalText = btn.innerHTML;
 
-    btn.innerHTML = 'Generating...';
+    btn.innerHTML = 'Generating (Backend)...';
     btn.disabled = true;
 
-    const opt = {
-        margin: 10,
-        filename: getResumeFileName(),
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2, useCORS: true },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-    };
+    // Clone the resume component and clean it up for the PDF
+    const resumeClone = element.cloneNode(true);
+    resumeClone.style.transform = 'none'; // Remove any preview scaling
 
-    html2pdf().set(opt).from(element).save().then(() => {
+    // Get all Styles from the document to include in the PDF
+    const styles = Array.from(document.querySelectorAll('style, link[rel="stylesheet"]'))
+        .map(el => el.outerHTML)
+        .join('\n');
+
+    const htmlContent = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            ${styles}
+            <style>
+                body { background: white; margin: 0; padding: 0; }
+                .resume-sheet { box-shadow: none !important; margin: 0 !important; transform: none !important; }
+            </style>
+        </head>
+        <body>
+            ${resumeClone.outerHTML}
+        </body>
+        </html>
+    `;
+
+    fetch('http://localhost:8080/api/pdf/generate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ htmlContent: htmlContent })
+    })
+    .then(response => {
+        if (!response.ok) throw new Error('Backend error');
+        return response.blob();
+    })
+    .then(blob => {
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `${(document.getElementById('prev-r-name').innerText || 'Resume').replace(/\s+/g, '_')}_Resume.pdf`;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        
         btn.innerHTML = originalText;
         btn.disabled = false;
-        showToast("PDF Downloaded!");
-    }).catch(err => {
-        console.error(err);
-        btn.innerHTML = originalText;
-        btn.disabled = false;
-        showToast("Error generating PDF");
+        showToast("PDF Downloaded (Backend)!");
+    })
+    .catch(err => {
+        console.error("Backend PDF failed, falling back to frontend:", err);
+        // Fallback to html2pdf.js if backend is not running
+        const opt = {
+            margin: 10,
+            filename: `${(document.getElementById('prev-r-name').innerText || 'Resume').replace(/\s+/g, '_')}_Resume.pdf`,
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2, useCORS: true },
+            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        };
+
+        html2pdf().set(opt).from(element).save().then(() => {
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+            showToast("PDF Downloaded (Frontend Fallback)!");
+        });
     });
 }
 
@@ -381,3 +428,16 @@ window.onload = function () {
     renderDynamic();
     fitPreview();
 };
+
+function showToast(msg) {
+    let toast = document.createElement('div');
+    toast.innerText = msg;
+    toast.style.cssText = `
+        position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+        background: var(--sidebar-bg); color: #fff; padding: 12px 24px;
+        border-radius: 30px; font-weight: 600; font-size: 13px;
+        box-shadow: var(--shadow-lg); z-index: 1000; transition: opacity 0.3s;
+    `;
+    document.body.appendChild(toast);
+    setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => toast.remove(), 300); }, 3000);
+}
