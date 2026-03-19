@@ -1133,3 +1133,14 @@ PDF generated successfully!
 2026-03-19T19:57:47.428+05:30 DEBUG 18156 --- [io-8080-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:application/pdf' in response
 2026-03-19T19:57:47.471+05:30 DEBUG 18156 --- [io-8080-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{37, 80, 68, 70, 45, 49, 46, 52, 10, 37, -45, -21, -23, -31, 10, 49, 32, 48, 32, 111, 98, 106, 10, 6 (truncated)...]
 2026-03-19T19:57:47.477+05:30 DEBUG 18156 --- [io-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-03-19T20:17:45.731+05:30 DEBUG 18156 --- [nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : OPTIONS "/api/pdf/generate", parameters={}
+2026-03-19T20:17:45.755+05:30 DEBUG 18156 --- [nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.resumebuilder.controller.PdfController#generatePdf(PdfRequest)
+2026-03-19T20:17:45.878+05:30 DEBUG 18156 --- [nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-03-19T20:17:45.999+05:30 DEBUG 18156 --- [nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : POST "/api/pdf/generate", parameters={}
+2026-03-19T20:17:45.999+05:30 DEBUG 18156 --- [nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.resumebuilder.controller.PdfController#generatePdf(PdfRequest)
+2026-03-19T20:17:46.022+05:30 DEBUG 18156 --- [nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.resumebuilder.dto.PdfRequest@518e67fb]
+Generating PDF with Playwright Chromium Engine...
+PDF generated successfully!
+2026-03-19T20:17:52.410+05:30 DEBUG 18156 --- [nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:application/pdf' in response
+2026-03-19T20:17:52.478+05:30 DEBUG 18156 --- [nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{37, 80, 68, 70, 45, 49, 46, 52, 10, 37, -45, -21, -23, -31, 10, 49, 32, 48, 32, 111, 98, 106, 10, 6 (truncated)...]
+2026-03-19T20:17:52.481+05:30 DEBUG 18156 --- [nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
